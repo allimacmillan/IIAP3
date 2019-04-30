@@ -77,12 +77,21 @@ function updateGameArea() {
   console.log('updateGameArea');
   ant.floatUp();
 
-
+  //Ant reaches top
   if (parseInt(ant.element.style.top) <= 15) {
     myGameArea.stop();
     alert("YOU WON! Press OK and then space bar to play again.")
   }
-
+  //Ant reaches right side
+  if (parseInt(ant.element.style.left) >= 950) {
+    console.log('right')
+    ant.element.style.left = "950";
+  }
+  //Ant reaches left side
+  if (parseInt(ant.element.style.left) <= 0) {
+    console.log('left')
+    ant.element.style.left = "0";
+  }
   var x, y;
   for (i = 0; i < shoes.length; i += 1) {
     if (ant.crashWith(shoes[i])) {
